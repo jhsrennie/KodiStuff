@@ -1,0 +1,43 @@
+#ifndef IDC_STATIC
+#define IDC_STATIC              -1
+#endif
+
+#define IDA_MAIN                        1
+#define IDD_COMMENT_COMMENT             106
+#define IDC_COMBO1                      1002
+#define IDD_KEYDEF_KEY                  1002
+#define IDD_SECTION_SECTION             1003
+#define IDD_KEYDEF_ID                   1004
+#define IDD_KEYDEF_CTRL                 1005
+#define IDD_KEYDEF_SHIFT                1006
+#define IDD_KEYDEF_ALT                  1007
+#define IDD_KEYDEF_WIN                  1008
+#define IDC_COMBO2                      1009
+#define IDD_KEYDEF_ACTION               1009
+#define ID_FILE_NEW40001                40001
+#define ID_FILE_OPEN40002               40002
+#define ID_FILE_SAVE40003               40003
+#define ID_FILE_SAVEAS                  40004
+#define ID_FILE_EXIT                    40005
+#define ID_FILE_ABOUT                   40006
+#define IDM_FILE_NEW                    40007
+#define IDM_FILE_OPEN                   40008
+#define IDM_FILE_SAVE                   40009
+#define IDM_FILE_SAVEAS                 40010
+#define IDM_FILE_EXIT                   40011
+#define IDM_FILE_ABOUT                  40012
+#define ID_KEYMAP_APPENDKEY             40013
+#define ID_KEYMAP_APPENDSECTION         40014
+#define ID_KEYMAP_INSERTCOMMENT         40015
+#define ID_KEYMAP_EDIT                  40016
+#define ID_KEYMAP_DELETE                40017
+#define IDM_KEYMAP_INSERTCOMMENT        40018
+#define IDM_KEYMAP_EDIT                 40019
+#define IDM_KEYMAP_DELETE               40020
+#define IDM_KEYMAP_APPENDSECTION        40021
+#define IDM_KEYMAP_APPENDKEY            40022
+#define ID_KEYMAP_DETECTKEYPRESS        40023
+#define IDM_KEYMAP_DETECT               40024
+#define ID_EDIT_FONT                    40031
+#define IDM_EDIT_FONT                   40032
+#define IDM_KEYMAP_KEYDETECTED          40033

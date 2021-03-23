@@ -1,0 +1,160 @@
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+#include "windows.h"
+#include "resource.h"
+
+
+////////////////////////////////////////////////////////////////////////
+// Icons
+////////////////////////////////////////////////////////////////////////
+
+KEYMAPEDITICON          ICON                    "KeyMapEdit.ico"
+KEYMAPEDITICONSMALL     ICON                    "KeyMapEditSmall.ico"
+RHSICON                 ICON                    "rhs.ico"
+
+
+////////////////////////////////////////////////////////////////////////
+// Dialogs
+////////////////////////////////////////////////////////////////////////
+
+DLGABOUT DIALOGEX 0, 0, 178, 82
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About KeyMapEdit"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,66,60,50,14
+    LTEXT           "Key mapping editor for Kodi",IDC_STATIC,54,12,94,8
+    LTEXT           "(c) Rattus Hacking Software, 2021",IDC_STATIC,30,42,112,8
+    ICON            "KeyMapEditIcon",IDC_STATIC,18,6,20,20
+    ICON            "RhsIcon",IDC_STATIC,18,54,20,20
+    LTEXT           "v2.1",IDC_STATIC,54,24,114,8
+END
+
+DLGCOMMENT DIALOGEX 0, 0, 274, 53
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Insert/edit comment"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDD_COMMENT_COMMENT,6,6,258,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,54,30,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,162,30,50,14
+END
+
+DLGSECTION DIALOGEX 0, 0, 154, 53
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Insert/edit section"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDD_SECTION_SECTION,6,6,144,200,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,18,30,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,90,30,50,14
+END
+
+DLGKEYDEF DIALOGEX 0, 0, 214, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDD_KEYDEF_KEY,30,6,102,150,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDD_KEYDEF_ID,162,6,42,14,ES_AUTOHSCROLL
+    CONTROL         "&Control",IDD_KEYDEF_CTRL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,24,39,10
+    CONTROL         "&Shift",IDD_KEYDEF_SHIFT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,78,24,31,10
+    CONTROL         "A&lt",IDD_KEYDEF_ALT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,120,24,25,10
+    CONTROL         "&Windows",IDD_KEYDEF_WIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,162,24,45,10
+    COMBOBOX        IDD_KEYDEF_ACTION,30,42,174,150,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,30,72,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,126,72,50,14
+    LTEXT           "&id =",IDC_STATIC,144,6,14,8
+    LTEXT           "&Key",IDC_STATIC,6,6,13,8
+    LTEXT           "&Action",IDC_STATIC,6,42,21,8
+END
+
+
+////////////////////////////////////////////////////////////////////////
+// Menus
+////////////////////////////////////////////////////////////////////////
+
+KEYMAPEDITMENU MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        IDM_FILE_NEW
+        MENUITEM "&Open",                       IDM_FILE_OPEN
+        MENUITEM "&Save",                       IDM_FILE_SAVE
+        MENUITEM "Save &as",                    IDM_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_FILE_EXIT
+        MENUITEM SEPARATOR
+        MENUITEM "A&bout",                      IDM_FILE_ABOUT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Font",                       IDM_EDIT_FONT
+    END
+    POPUP "&Keymap"
+    BEGIN
+        MENUITEM "De&tect keypress",            IDM_KEYMAP_DETECT
+        MENUITEM SEPARATOR
+        MENUITEM "Append &key",                 IDM_KEYMAP_APPENDKEY
+        MENUITEM "Append &section",             IDM_KEYMAP_APPENDSECTION
+        MENUITEM "Insert &comment",             IDM_KEYMAP_INSERTCOMMENT
+        MENUITEM SEPARATOR
+        MENUITEM "&Edit",                       IDM_KEYMAP_EDIT
+        MENUITEM "&Delete",                     IDM_KEYMAP_DELETE
+    END
+END
+
+
+////////////////////////////////////////////////////////////////////////
+// Version info
+////////////////////////////////////////////////////////////////////////
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,1,0,0
+ PRODUCTVERSION 2,1,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "Comments", "Update for name change from XBMC to Kodi"
+            VALUE "CompanyName", "Rattus Hacking Software"
+            VALUE "FileDescription", "Kodi KeyMapEdit"
+            VALUE "FileVersion", "2,1,0,0"
+            VALUE "InternalName", "KeyMapEdit"
+            VALUE "LegalCopyright", "Copyright (C) Rattus Hacking Software 2021"
+            VALUE "OriginalFilename", "KeyMapEdit.exe"
+            VALUE "ProductName", "Kodi KeyMapEdit"
+            VALUE "ProductVersion", "2,1,0,0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDA_MAIN ACCELERATORS
+BEGIN
+    "N",            IDM_FILE_NEW,           VIRTKEY, CONTROL, NOINVERT
+    "O",            IDM_FILE_OPEN,          VIRTKEY, CONTROL, NOINVERT
+    "S",            IDM_FILE_SAVE,          VIRTKEY, CONTROL, NOINVERT
+    VK_RETURN,      IDM_KEYMAP_EDIT,        VIRTKEY, NOINVERT
+    VK_DELETE,      IDM_KEYMAP_DELETE,      VIRTKEY, NOINVERT
+END
